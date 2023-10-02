@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block title %}Cheese List{% endblock title %}
+
+{% block content %}
+
+
+
+
+<h2>cheese List</h2>
+ 
+
+<table class="table table-striped table-bordered">
+
+    <tr>
+        <th>Cheese</th>
+        <th>Country</th>
+        <th>Command</th>
+    </tr>
+
+   <tbody>
+     
+    <tr>
+        <th><a href="/cheeses/colby/">Colby</a></th>
+        <th>United States of America</th>
+        <th><a href="/delete/cheese">Delete</a></th>
+    </tr>
+
+   </tbody>
+   </td>
+</tr>
+ 
+    <tr>
+        <th><a href="/cheeses/camembert/">Camembert</a></th>
+        <th>France</th>
+        <th><a href="/cheeses/Delete/">Delete</a></th>
+    </tr>
+
+   </tbody>
+   </td>
+</tr>
+ 
+    <tr>
+        <th><a href="/cheeses/gouda/">Gouda</a></th>
+        <th>Netherlands</th>
+        <th><a href="/cheeses/Delete/">Delete</a></th>
+    </tr>
+
+   </tbody>
+   </td>
+</tr>
+ 
+    <tr>
+        <th><a href="/cheeses/cheddar/">Cheddar</a></th>
+        <th>United Kingdom</th>
+        <th><a href="/cheeses/Delete/">Delete</a></th>
+    </tr>
+
+   </tbody>
+   </td>
+</tr>
+ 
+    <tr>
+        <th><a href="/cheeses/stracchino/">Stracchino</a></th>
+        <th>Italy</th>
+        <th><a href="/cheeses/Delete/">Delete</a></th>
+    </tr>
+
+   </tbody>
+   </td>
+</tr>
+ 
+    <tr>
+        <th><a href="/cheeses/havarti/">Havarti</a></th>
+        <th>Denmark</th>
+        <th><a href="/cheeses/Delete/">Delete</a></th>
+    </tr>
+
+   </tbody>
+   </td>
+</tr>
+
+</tbody>
+</table>
+   
+
+
+
+
+
+
+<p>
+    <a class="btn btn-primary" href="{% url 'cheeses:add' %}" role="button">
+        Add Cheese
+    </a>
+
+</p>
+
+
+{% endblock content %}
