@@ -6,7 +6,6 @@ from autoslug import AutoSlugField
 from model_utils.models import TimeStampedModel
 from django_countries.fields import CountryField
 from django.shortcuts import render
-
 class Cheese(TimeStampedModel):
 
     class Firmness(models.TextChoices):

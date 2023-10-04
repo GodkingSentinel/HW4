@@ -1,5 +1,10 @@
 from django.urls import path
 from . import views
+from django.conf.urls import url
+from django.conf.urls import include, url
+from django.contrib import admin
+
+from . import views
 
 app_name = "cheeses"
 urlpatterns = [
@@ -24,6 +29,12 @@ urlpatterns = [
         view=views.CheeseUpdateView.as_view(),
         name='update'
 
+    ),
+
+    path(
+    route='<slug:slug>/delete/',
+        view=views.CheeseDeleteView.as_view(),
+        name='delete'
     ),
 
 ]

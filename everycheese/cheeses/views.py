@@ -1,13 +1,37 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.shortcuts import redirect
+from django.shortcuts import render
+from django.urls import reverse_lazy
+
 from django.views.generic import (
     ListView, 
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView
 )
-from .models import Cheese
 
+#create your views here.
+
+import logging
+log = logging.getLogger("root")
+
+
+from django.http import HttpResponse
+from django.utils.deprecation import MiddlewareMixin 
+
+
+
+from django.conf import settings
+#the dot is a relative import 
+from .models import Cheese 
+
+
+
+from django.template.response import TemplateResponse
+
+from .models import Cheese
+from django.forms import IntegerField
+from django.forms import ModelForm
 
 class CheeseListView(ListView):
     model = Cheese
@@ -31,10 +55,12 @@ class CheeseUpdateView(LoginRequiredMixin, UpdateView):
         'firmness',
         'country_of_origin'
     ]
-    action = "Update"
+    action = 'Update'
 
-   
-
-       
+class CheeseDeleteView(LoginRequiredMixin, DeleteView):
+    model = Cheese
     
-   
+    # This works. Next try django loader for getting the .HTML page
+    template_name = '../templates/cheeses/cheese_confirm_delete.html'
+
+    success_url=reverse_lazy("cheeses:list")
